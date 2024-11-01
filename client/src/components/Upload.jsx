@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { assets } from "../assets/assets";
+import { AppContext } from "../context/AppContext";
 
 const Upload = () => {
+  const { removeBg } = useContext(AppContext);
   return (
     <div className="pb-16">
       {/* Title */}
@@ -9,6 +12,7 @@ const Upload = () => {
       </h1>
       <div className="text-center mb-24">
         <input
+          onChange={(e) => removeBg(e.target.files[0])}
           type="file"
           accept=".jpg, .jpeg, .png"
           name=""
